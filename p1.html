@@ -180,7 +180,7 @@
             }
         /* see gallery_shortcode() in wp-includes/media.php */
     </style>
-    <div id='gallery-3' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
+    <!--<div id='gallery-3' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
         <dl class='gallery-item'>
             <dt class='gallery-icon landscape'>
                 <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="IMG_1979" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
@@ -233,7 +233,7 @@
             </dd>
         </dl>
         <br style='clear: both' />
-    </div>
+    </div>-->
 
     <p><strong>Property Maps:</strong></p>
 
@@ -261,9 +261,11 @@
     <div id='gallery-4' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
         <dl class='gallery-item'>
             <dt class='gallery-icon landscape'>
-                <a href='p1.png'><img width="150" height="150" src="p1.png" class="attachment-thumbnail size-thumbnail" alt="Screen Shot 2016-04-12 at 10.42.26 AM" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.42.26-AM-150x150.png 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.42.26-AM-50x50.png 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.42.26-AM-100x100.png 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.42.26-AM-500x500.png 500w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+                <a href='p1.png'><img width="150" height="150" src="p1.png" class="attachment-thumbnail size-thumbnail" alt="Screen Shot 2016-04-12 at 10.42.26 AM" /></a>
             </dt>
-        </dl><dl class='gallery-item'>
+        </dl>
+        <
+        <!--dl class='gallery-item'>
             <dt class='gallery-icon landscape'>
                 <a href='p2.png'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.41.49-AM-150x150.png" class="attachment-thumbnail size-thumbnail" alt="Screen Shot 2016-04-12 at 10.41.49 AM" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.41.49-AM-150x150.png 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.41.49-AM-50x50.png 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.41.49-AM-100x100.png 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.41.49-AM-500x500.png 500w" sizes="(max-width: 150px) 100vw, 150px" /></a>
             </dt>
@@ -283,25 +285,27 @@
             <dt class='gallery-icon landscape'>
                 <a href='p6.png'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.43.43-AM-150x150.png" class="attachment-thumbnail size-thumbnail" alt="Screen Shot 2016-04-12 at 10.43.43 AM" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.43.43-AM-150x150.png 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.43.43-AM-50x50.png 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.43.43-AM-100x100.png 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-12-at-10.43.43-AM-500x500.png 500w" sizes="(max-width: 150px) 100vw, 150px" /></a>
             </dt>
-        </dl><br style="clear: both" />
+        </dl>-->
+
+        <br style="clear: both" />
     </div>
     <div id="map"></div>
     <script>
 
-      function initMap() {
-        var myLatLng = {lat: -25.363, lng: 131.044};
+        function initMap() {
+            var myLatLng = { lat: -25.363, lng: 131.044 };
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatLng
-        });
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: myLatLng
+            });
 
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
-        });
-      }
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!'
+            });
+        }
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&callback=initMap">
