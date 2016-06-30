@@ -293,6 +293,8 @@
         <br style="clear: both" />
     </div>
 
+    <!-- map-->
+
     <div id="map"></div>
     <script>
 
@@ -300,7 +302,7 @@
             var myLatLng = { lat: 48.131660, lng: -122.793278 };
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 9,
+                zoom: 11,
                 center: myLatLng
             });
 
@@ -481,6 +483,7 @@
         <input type="number" name="Telephone">
         <input type="email" name="_replyto">
         <input type="submit" value="Send">
+        <input type="hidden" name="_next" value="index.html" />
     </form>
 </body>
 </html>
