@@ -26,119 +26,118 @@
     <![endif]-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
 
     <style>
+          html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+          }
 
-        html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
+          #map {
+              height: 100%;
+          }
+          .controls {
+              margin-top: 10px;
+              border: 1px solid transparent;
+              border-radius: 2px 0 0 2px;
+              box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              height: 32px;
+              outline: none;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+          }
 
-      }
-      .controls {
-        margin-top: 10px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
+          #origin-input,
+          #destination-input {
+              background-color: #fff;
+              font-family: Roboto;
+              font-size: 15px;
+              font-weight: 300;
+              margin-left: 12px;
+              padding: 0 11px 0 13px;
+              text-overflow: ellipsis;
+              width: 200px;
+          }
 
-      #origin-input,
-      #destination-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 200px;
-      }
+              #origin-input:focus,
+              #destination-input:focus {
+                  border-color: #4d90fe;
+              }
 
-      #origin-input:focus,
-      #destination-input:focus {
-        border-color: #4d90fe;
-      }
+          #mode-selector {
+              color: #fff;
+              background-color: #4d90fe;
+              margin-left: 12px;
+              padding: 5px 11px 0px 11px;
+          }
 
-      #mode-selector {
-        color: #fff;
-        background-color: #4d90fe;
-        margin-left: 12px;
-        padding: 5px 11px 0px 11px;
-      }
+              #mode-selector label {
+                  font-family: Roboto;
+                  font-size: 13px;
+                  font-weight: 300;
+              }
 
-      #mode-selector label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
+          /*#map {
+          height: 100%;
+        }*/
 
-      /*#map {
-        height: 100%;
-      }*/
+          * {
+              box-sizing: border-box;
+          }
 
-        * {
-            box-sizing: border-box;
-        }
+          .columns {
+              float: left;
+              width: 33.3%;
+              padding: 8px;
+          }
 
-        .columns {
-            float: left;
-            width: 33.3%;
-            padding: 8px;
-        }
+          .price {
+              list-style-type: none;
+              border: 1px solid #eee;
+              margin: 0;
+              padding: 0;
+              -webkit-transition: 0.3s;
+              transition: 0.3s;
+          }
 
-        .price {
-            list-style-type: none;
-            border: 1px solid #eee;
-            margin: 0;
-            padding: 0;
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
-        }
+              .price:hover {
+                  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+              }
 
-            .price:hover {
-                box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
-            }
+              .price .header {
+                  background-color: #111;
+                  color: white;
+                  font-size: 25px;
+              }
 
-            .price .header {
-                background-color: #111;
-                color: white;
-                font-size: 25px;
-            }
+              .price li {
+                  border-bottom: 1px solid #eee;
+                  padding: 20px;
+                  text-align: center;
+              }
 
-            .price li {
-                border-bottom: 1px solid #eee;
-                padding: 20px;
-                text-align: center;
-            }
+              .price .grey {
+                  background-color: #eee;
+                  font-size: 20px;
+              }
 
-            .price .grey {
-                background-color: #eee;
-                font-size: 20px;
-            }
+          .button {
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              padding: 10px 25px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 18px;
+          }
 
-        .button {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 25px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .columns {
-                width: 100%;
-            }
-        }
+          @media only screen and (max-width: 600px) {
+              .columns {
+                  width: 100%;
+              }
+          }
     </style>
 
 </head>
@@ -308,7 +307,7 @@
         /* see gallery_shortcode() in wp-includes/media.php */
     </style>
     <div id='gallery-4' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
-         <dl class='gallery-item'>
+        <dl class='gallery-item'>
             <dt class='gallery-icon landscape'>
                 <a href='img/p/1/1.png'><img width="150" height="150" src="img/p/1/1.png" class="attachment-thumbnail size-thumbnail" /></a>
             </dt>
@@ -344,16 +343,20 @@
 
     <!-- map-->
 
+
     <input id="origin-input" class="controls" type="text"
            placeholder="Enter an origin location">
+
     <input id="destination-input" class="controls" type="text"
            placeholder="Enter a destination location">
 
     <div id="mode-selector" class="controls">
         <input type="radio" name="type" id="changemode-walking" checked="checked">
         <label for="changemode-walking">Walking</label>
+
         <input type="radio" name="type" id="changemode-transit">
         <label for="changemode-transit">Transit</label>
+
         <input type="radio" name="type" id="changemode-driving">
         <label for="changemode-driving">Driving</label>
     </div>
@@ -361,19 +364,20 @@
     <div id="map"></div>
 
     <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
       function initMap() {
         var origin_place_id = null;
         var destination_place_id = null;
-        //var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
         var travel_mode = google.maps.TravelMode.WALKING;
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
-          center: { lat: -33.8688, lng: 151.2195 },
-          //center: { lat: 48.131660, lng: -122.793278 },
+          center: {lat: -33.8688, lng: 151.2195},
           zoom: 13
         });
         var directionsService = new google.maps.DirectionsService;
-        var destination_input = document.getElementById('destination-input');
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
 
@@ -387,7 +391,6 @@
 
         var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
         origin_autocomplete.bindTo('bounds', map);
-
         var destination_autocomplete =
             new google.maps.places.Autocomplete(destination_input);
         destination_autocomplete.bindTo('bounds', map);
@@ -400,6 +403,7 @@
             travel_mode = mode;
           });
         }
+        setupClickListener('changemode-walking', google.maps.TravelMode.WALKING);
         setupClickListener('changemode-transit', google.maps.TravelMode.TRANSIT);
         setupClickListener('changemode-driving', google.maps.TravelMode.DRIVING);
 
@@ -408,7 +412,7 @@
             map.fitBounds(place.geometry.viewport);
           } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(13);
+            map.setZoom(17);
           }
         }
 
@@ -461,199 +465,319 @@
         }
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
-    </script>
-        
-     <!--<div id="map"></div>
-   <script>     
-        function initMap() {
-            var myLatLng = { lat: 48.131660, lng: -122.793278 };
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap"
+            async defer></script>
 
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 17,
-                center: myLatLng
-            });
 
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: 'Hello World!'
-            });
+<!--<input id="origin-input" class="controls" type="text"
+       placeholder="Enter an origin location">
+<input id="destination-input" class="controls" type="text"
+       placeholder="Enter a destination location">
+
+<div id="mode-selector" class="controls">
+    <input type="radio" name="type" id="changemode-walking" checked="checked">
+    <label for="changemode-walking">Walking</label>
+    <input type="radio" name="type" id="changemode-transit">
+    <label for="changemode-transit">Transit</label>
+    <input type="radio" name="type" id="changemode-driving">
+    <label for="changemode-driving">Driving</label>
+</div>
+
+<div id="map"></div>
+
+<script>
+  function initMap() {
+    var origin_place_id = null;
+    var destination_place_id = null;
+    //var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
+    var travel_mode = google.maps.TravelMode.WALKING;
+    var map = new google.maps.Map(document.getElementById('map'), {
+      mapTypeControl: false,
+      center: { lat: -33.8688, lng: 151.2195 },
+      //center: { lat: 48.131660, lng: -122.793278 },
+      zoom: 13
+    });
+    var directionsService = new google.maps.DirectionsService;
+    var destination_input = document.getElementById('destination-input');
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    directionsDisplay.setMap(map);
+
+    var origin_input = document.getElementById('origin-input');
+    var destination_input = document.getElementById('destination-input');
+    var modes = document.getElementById('mode-selector');
+
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
+
+    var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
+    origin_autocomplete.bindTo('bounds', map);
+
+    var destination_autocomplete =
+        new google.maps.places.Autocomplete(destination_input);
+    destination_autocomplete.bindTo('bounds', map);
+
+    // Sets a listener on a radio button to change the filter type on Places
+    // Autocomplete.
+    function setupClickListener(id, mode) {
+      var radioButton = document.getElementById(id);
+      radioButton.addEventListener('click', function() {
+        travel_mode = mode;
+      });
+    }
+    setupClickListener('changemode-transit', google.maps.TravelMode.TRANSIT);
+    setupClickListener('changemode-driving', google.maps.TravelMode.DRIVING);
+
+    function expandViewportToFitPlace(map, place) {
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(13);
+      }
+    }
+
+    origin_autocomplete.addListener('place_changed', function() {
+      var place = origin_autocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
+      }
+      expandViewportToFitPlace(map, place);
+
+      // If the place has a geometry, store its place ID and route if we have
+      // the other place ID
+      origin_place_id = place.place_id;
+      route(origin_place_id, destination_place_id, travel_mode,
+            directionsService, directionsDisplay);
+    });
+
+    destination_autocomplete.addListener('place_changed', function() {
+      var place = destination_autocomplete.getPlace();
+      if (!place.geometry) {
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
+      }
+      expandViewportToFitPlace(map, place);
+
+      // If the place has a geometry, store its place ID and route if we have
+      // the other place ID
+      destination_place_id = place.place_id;
+      route(origin_place_id, destination_place_id, travel_mode,
+            directionsService, directionsDisplay);
+    });
+
+    function route(origin_place_id, destination_place_id, travel_mode,
+                   directionsService, directionsDisplay) {
+      if (!origin_place_id || !destination_place_id) {
+        return;
+      }
+      directionsService.route({
+        origin: {'placeId': origin_place_id},
+        destination: {'placeId': destination_place_id},
+        travelMode: travel_mode
+      }, function(response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
         }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
-    </script>-->
+      });
+    }
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
+</script>-->
+<!--<div id="map"></div>
+<script>
+     function initMap() {
+         var myLatLng = { lat: 48.131660, lng: -122.793278 };
 
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="view.html" class="portfolio-box">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Jefferson County
-                                </div>
-                                <div class="project-name">
-                                    City of Port Townsend .46 Acres - Puget Sound - Olympic Peninsula
-                                </div>
+         var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 17,
+             center: myLatLng
+         });
+
+         var marker = new google.maps.Marker({
+             position: myLatLng,
+             map: map,
+             title: 'Hello World!'
+         });
+     }
+ </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
+ </script>-->
+
+<section class="no-padding" id="portfolio">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-lg-4 col-sm-6">
+                <a href="view.html" class="portfolio-box">
+                    <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Jefferson County
+                            </div>
+                            <div class="project-name">
+                                City of Port Townsend .46 Acres - Puget Sound - Olympic Peninsula
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Category
+                            </div>
+                            <div class="project-name">
+                                Project Name
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Category
+                            </div>
+                            <div class="project-name">
+                                Project Name
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Category
+                            </div>
+                            <div class="project-name">
+                                Project Name
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Category
+                            </div>
+                            <div class="project-name">
+                                Project Name
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Category
+                            </div>
+                            <div class="project-name">
+                                Project Name
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    
-    <section class="no-padding" id="reserve">
-        <div class="columns">
-            <ul class="price">
-                <li class="header">Single Lot</li>
-                <li class="grey">$20,000</li>
-                <li>
-                    Term: 72 months
-                    <!--https://quickclick.com/r/5kpnx-->
-                    <form action="https://payzang.transactiongateway.com/cart/cart.php" method="POST">
-                        <input type="hidden" name="key_id" value="6998869" />
-                        <input type="hidden" name="action" value="process_fixed" />
-                        <input type="hidden" name="amount" value="20000.00" />
-                        <input type="hidden" name="order_description" value="One parcel" />
-                        <input type="hidden" name="language" value="en" />
-                        <input type="hidden" name="url_finish" value="https://landestates.net" />
-                        <input type="hidden" name="customer_receipt" value="true" />
-                        <input type="hidden" name="hash" value="action|amount|order_description|41a9316e6891354b62a09c2474a18805" />
-                        <input type="submit" name="submit" value="Buy Now" />
-                    </form>
-                </li>
-                <li class="grey">
 
-                </li>
-            </ul>
-        </div>
-        <div class="columns">
+<section class="no-padding" id="reserve">
+    <div class="columns">
+        <ul class="price">
+            <li class="header">Single Lot</li>
+            <li class="grey">$20,000</li>
+            <li>
+                Term: 72 months
+                <!--https://quickclick.com/r/5kpnx-->
+                <form action="https://payzang.transactiongateway.com/cart/cart.php" method="POST">
+                    <input type="hidden" name="key_id" value="6998869" />
+                    <input type="hidden" name="action" value="process_fixed" />
+                    <input type="hidden" name="amount" value="20000.00" />
+                    <input type="hidden" name="order_description" value="One parcel" />
+                    <input type="hidden" name="language" value="en" />
+                    <input type="hidden" name="url_finish" value="https://landestates.net" />
+                    <input type="hidden" name="customer_receipt" value="true" />
+                    <input type="hidden" name="hash" value="action|amount|order_description|41a9316e6891354b62a09c2474a18805" />
+                    <input type="submit" name="submit" value="Buy Now" />
+                </form>
+            </li>
+            <li class="grey">
+
+            </li>
+        </ul>
+    </div>
+    <div class="columns">
+        <ul class="price">
+            <li class="header">All four lots</li>
+            <li class="grey">$ 2,500 down</li>
+            <li>$1400/mo</li>
+            <li>Term: 72 months</li>
+            <li class="grey">
+                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                            data-name="Real Estate Properties North America"
+                            data-description=""
+                            data-amount="250000"></script>
+                    <input name="amount" value="250000" type="hidden">
+                    <input name="description" value="250000" type="hidden">
+                </form>
+            </li>
+        </ul>
+    </div>
+    <br />
+    <div class="columns">
+        <ul class="price">
+            <li class="header">Cash</li>
+            <li class="grey">$80,000</li>
+            <li class="grey">Record deed</li>
+            <li class="grey"></li>
+            <li class="grey">Call to reserve</li>
+        </ul>
+    </div>
+    <br>
+    <div class="container">
+        <form action="https://formspree.io/realepna@gmail.com"
+              method="POST">
             <ul class="price">
-                <li class="header">All four lots</li>
-                <li class="grey">$ 2,500 down</li>
-                <li>$1400/mo</li>
-                <li>Term: 72 months</li>
-                <li class="grey">
-                    <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
-                        <script src="https://checkout.stripe.com/checkout.js"
-                                class="stripe-button"
-                                data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
-                                data-name="Real Estate Properties North America"
-                                data-description=""
-                                data-amount="250000"></script>
-                        <input name="amount" value="250000" type="hidden">
-                        <input name="description" value="250000" type="hidden">
-                    </form>
-                </li>
+                <li class="header">Inquiries</li>
+                <li class="grey">Name:<input type="text" name="Name"></li>
+                <li><input type="number" name="Telephone"></li>
+                <li class="grey"><input type="submit" value="Send"></li>
+                <li><input type="email" name="_replyto"></li>
+                <li><input type="hidden" name="_subject" value="New submission!" /></li>
+                <li class="grey"><input type="hidden" name="_next" value="index.html" /></li>
+                <li><input type="text" name="_gotcha" style="display:none" /></li>
             </ul>
-        </div>
-        <br />
-        <div class="columns">
-            <ul class="price">
-                <li class="header">Cash</li>
-                <li class="grey">$80,000</li>
-                <li class="grey">Record deed</li>
-                <li class="grey"></li>
-                <li class="grey">Call to reserve</li>
-            </ul>
-        </div>
-        <br>
-        <div class="container">
-            <form action="https://formspree.io/realepna@gmail.com"
-                  method="POST">
-                <ul class="price">
-                    <li class="header">Inquiries</li>
-                    <li class="grey">Name:<input type="text" name="Name"></li>
-                    <li><input type="number" name="Telephone"></li>
-                    <li class="grey"><input type="submit" value="Send"></li>
-                    <li><input type="email" name="_replyto"></li>
-                    <li><input type="hidden" name="_subject" value="New submission!" /></li>
-                    <li class="grey"><input type="hidden" name="_next" value="index.html" /></li>
-                    <li><input type="text" name="_gotcha" style="display:none" /></li>
-                </ul>
-            </form>
-        </div>
-        <br />
-        </section>
+        </form>
+    </div>
+    <br />
+</section>
 </body>
 </html>
