@@ -1,9 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     
-    {% include nav1.html %}
     <title>Reverse Geocoding</title>
 
     <style>
@@ -46,7 +44,8 @@
 </head>
 <body>
     <div w3-include-html="head.html"></div>
-    {% include nav1.html %}
+    <div w3-include-html="nav1.html"></div>
+
     <div id="floating-panel">
         <input id="latlng" type="text" value="48.131660, -122.793278">
         <input id="submit" type="button" value="Reverse Geocode">
@@ -92,7 +91,8 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap">
     </script>
-    {% include scripts.html %}
+
+    <div w3-include-html="scripts.html"></div>
 </body>
 
 </html>
