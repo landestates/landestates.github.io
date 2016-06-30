@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
 
 <head>
+    
     {% include nav1.html %}
     <title>Reverse Geocoding</title>
 
@@ -44,8 +44,8 @@
       }
     </style>
 </head>
-
 <body>
+    <div w3-include-html="head.html"></div>
     {% include nav1.html %}
     <div id="floating-panel">
         <input id="latlng" type="text" value="48.131660, -122.793278">

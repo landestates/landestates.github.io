@@ -1,3 +1,616 @@
-ï»¿---
-layout: frontp1
----
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<head>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100%;
+        }
+
+        .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #origin-input,
+        #destination-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 200px;
+        }
+
+            #origin-input:focus,
+            #destination-input:focus {
+                border-color: #4d90fe;
+            }
+
+        #mode-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            margin-left: 12px;
+            padding: 5px 11px 0px 11px;
+        }
+
+            #mode-selector label {
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 300;
+            }
+
+        /*#map {
+          height: 100%;
+        }*/
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .columns {
+            float: left;
+            width: 33.3%;
+            padding: 8px;
+        }
+
+        .price {
+            list-style-type: none;
+            border: 1px solid #eee;
+            margin: 0;
+            padding: 0;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+            .price:hover {
+                box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+            }
+
+            .price .header {
+                background-color: #111;
+                color: white;
+                font-size: 25px;
+            }
+
+            .price li {
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .price .grey {
+                background-color: #eee;
+                font-size: 20px;
+            }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .columns {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    {% include navp.html %}
+
+    <li><strong>GOLD MEDAL FISHING, BOATING: </strong>in nearby Spinney Mountain, Elevenmile and Antero Reservoirs and the South Platte River!</li>
+    <li><strong>HUNTING: </strong>Pike and San Isabel National forest just minutes away from this property and is loaded with wild life such as deer, elk, antelope and moose.</li>
+    <li><strong>Hiking, Biking and Skiing: </strong>On Colorado’s finest mountains trails and ski areas.</li>
+    </ul>
+    <h3>Climate in the Hartsel Area</h3>
+    <p>This areas average rainfall is 10 inches per year. The average snow fall is 47 inches with 73 days of measurable precipitation and 246 days of sunlight. The average High temperature in July is 76 degrees and the High in January is 33 Degrees.</p>
+    <p>
+        <strong>Property Details:</strong><br />
+        Property Address: Lenape Trail, Hartsel, CO 80449, USA<br />
+        Parcel ID: 30582<br />
+        Size: 2.54 Acres<br />
+        Terrain: Level<br />
+        Access: Dirt Road<br />
+        Conveyance: Warranty Deed<br />
+        HOA Fees: None<br />
+        Taxes: Approximately $55 per year
+    </p>
+    <p>GPS Coordinates: 38.84266, -105.76083</p>
+    <p><strong>Pictures of this Property:</strong></p>
+
+    <style type='text/css'>
+        #gallery-3 {
+            margin: auto;
+        }
+
+            #gallery-3 .gallery-item {
+                float: left;
+                margin-top: 10px;
+                text-align: center;
+                width: 16%;
+            }
+
+            #gallery-3 img {
+                border: 2px solid #cfcfcf;
+            }
+
+            #gallery-3 .gallery-caption {
+                margin-left: 0;
+            }
+        /* see gallery_shortcode() in wp-includes/media.php */
+    </style>
+    <!--<div id='gallery-3' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="IMG_1979" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_1979-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2015.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2015-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="IMG_2015" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2015-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2015-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2015-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2016.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2016-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="IMG_2016" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2016-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2016-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/IMG_2016-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM.png'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM-150x150.png" class="attachment-thumbnail size-thumbnail" alt="Screen Shot 2016-04-05 at 11.08.33 AM" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM-150x150.png 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM-50x50.png 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM-100x100.png 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/Screen-Shot-2016-04-05-at-11.08.33-AM-500x500.png 500w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-01.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-01-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="CO-3209-EOC-61-01" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-01-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-01-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-01-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-02.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-02-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="CO-3209-EOC-61-02" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-02-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-02-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-02-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><br style="clear: both" /><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-03.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-03-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="CO-3209-EOC-61-03" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-03-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-03-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-03-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-04.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-04-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="CO-3209-EOC-61-04" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-04-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-04-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-04-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-05.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-05-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="CO-3209-EOC-61-05" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-05-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-05-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/CO-3209-EOC-61-05-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="Antero Reservoir" aria-describedby="gallery-3-3238" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-100x100.jpg 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-500x500.jpg 500w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/antero_2-1000x1000.jpg 1000w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+            <dd class='wp-caption-text gallery-caption' id='gallery-3-3238'>
+                Antero Reservoir
+            </dd>
+        </dl><dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008.jpg'><img width="150" height="150" src="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="Antero Reservoir" aria-describedby="gallery-3-3239" srcset="http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-150x150.jpg 150w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-50x50.jpg 50w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-100x100.jpg 100w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-500x500.jpg 500w, http://www.frontierpropertiesusa.com/wp-content/uploads/2016/04/photo-2-antero-reservoir-2008-1000x1000.jpg 1000w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+            </dt>
+            <dd class='wp-caption-text gallery-caption' id='gallery-3-3239'>
+                Antero Reservoir
+            </dd>
+        </dl>
+        <br style='clear: both' />
+    </div>-->
+
+    <p><strong>Property Maps:</strong></p>
+
+    <style type='text/css'>
+        #gallery-4 {
+            margin: auto;
+        }
+
+            #gallery-4 .gallery-item {
+                float: left;
+                margin-top: 10px;
+                text-align: center;
+                width: 16%;
+            }
+
+            #gallery-4 img {
+                border: 2px solid #cfcfcf;
+            }
+
+            #gallery-4 .gallery-caption {
+                margin-left: 0;
+            }
+        /* see gallery_shortcode() in wp-includes/media.php */
+    </style>
+    <div id='gallery-4' class='gallery galleryid-3221 gallery-columns-6 gallery-size-thumbnail'>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/1.png'><img width="150" height="150" src="img/p/1/1.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/2.png'><img width="150" height="150" src="img/p/1/2.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/3.png'><img width="150" height="150" src="img/p/1/3.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/4.png'><img width="150" height="150" src="img/p/1/4.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/5.png'><img width="150" height="150" src="img/p/1/5.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+        <dl class='gallery-item'>
+            <dt class='gallery-icon landscape'>
+                <a href='img/p/1/6.png'><img width="150" height="150" src="img/p/1/6.png" class="attachment-thumbnail size-thumbnail" /></a>
+            </dt>
+        </dl>
+
+        <br style="clear: both" />
+    </div>
+
+    <!-- map-->
+
+    <div>
+        <input id="origin-input" class="controls" type="text"
+               placeholder="Enter an origin location">
+        <input id="destination-input" class="controls" type="text"
+               value="Grant St, Port Townsend, WA 98368">
+        <div id="mode-selector" class="controls">
+            <!--<input type="radio" name="type" id="changemode-walking" checked="checked">
+            <label for="changemode-walking">Walking</label>-->
+            <input type="radio" name="type" id="changemode-transit">
+            <label for="changemode-transit">Transit</label>
+            <input type="radio" name="type" id="changemode-driving">
+            <label for="changemode-driving">Driving</label>
+        </div>
+
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            var origin_place_id = null;
+            //var destination_place_id = null;
+            //var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
+            //var destination_place_id = { position: { lat: 48.131660, lng: -122.793278 }, map: map };
+            var travel_mode = google.maps.TravelMode.DRIVING;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                mapTypeControl: false,
+                //center: { lat: -33.8688, lng: 151.2195 },
+                center: { lat: 48.131660, lng: -122.793278 },
+                zoom: 17
+            });
+            var marker = new google.maps.Marker({
+                position: { lat: 48.131660, lng: -122.793278 },
+                map: map,
+                title: 'Hello World!'
+            });
+            var directionsService = new google.maps.DirectionsService;
+            var destination_input = marker;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            directionsDisplay.setMap(map);
+
+            var origin_input = document.getElementById('origin-input');
+            var destination_input = document.getElementById('destination-input');
+            var modes = document.getElementById('mode-selector');
+
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
+
+            var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
+            origin_autocomplete.bindTo('bounds', map);
+
+            var destination_autocomplete =
+                new google.maps.places.Autocomplete(destination_input);
+            destination_autocomplete.bindTo('bounds', map);
+
+            // Sets a listener on a radio button to change the filter type on Places
+            // Autocomplete.
+            function setupClickListener(id, mode) {
+                var radioButton = document.getElementById(id);
+                radioButton.addEventListener('click', function () {
+                    travel_mode = mode;
+                });
+            }
+            setupClickListener('changemode-transit', google.maps.TravelMode.TRANSIT);
+            setupClickListener('changemode-driving', google.maps.TravelMode.DRIVING);
+
+            function expandViewportToFitPlace(map, place) {
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);
+                }
+            }
+
+            origin_autocomplete.addListener('place_changed', function () {
+                var place = origin_autocomplete.getPlace();
+                if (!place.geometry) {
+                    window.alert("Autocomplete's returned place contains no geometry");
+                    return;
+                }
+                expandViewportToFitPlace(map, place);
+
+                // If the place has a geometry, store its place ID and route if we have
+                // the other place ID
+                origin_place_id = place.place_id;
+                route(origin_place_id, destination_place_id, travel_mode,
+                      directionsService, directionsDisplay);
+            });
+
+            destination_autocomplete.addListener('place_changed', function () {
+                var place = destination_autocomplete.getPlace();
+                if (!place.geometry) {
+                    window.alert("Autocomplete's returned place contains no geometry");
+                    return;
+                }
+                expandViewportToFitPlace(map, place);
+
+                // If the place has a geometry, store its place ID and route if we have
+                // the other place ID
+                destination_place_id = place.place_id;
+                route(origin_place_id, destination_place_id, travel_mode,
+                      directionsService, directionsDisplay);
+            });
+
+            function route(origin_place_id, destination_place_id, travel_mode,
+                           directionsService, directionsDisplay) {
+                if (!origin_place_id || !destination_place_id) {
+                    return;
+                }
+                directionsService.route({
+                    origin: { 'placeId': origin_place_id },
+                    destination: { 'placeId': destination_place_id },
+                    travelMode: travel_mode
+                }, function (response, status) {
+                    if (status === google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                    } else {
+                        window.alert('Directions request failed due to ' + status);
+                    }
+                });
+            }
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap"
+            async defer></script>
+
+
+    <!--aside-->
+
+    <aside class="bg-dark" id="gct">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Try the Reverse Geocoding Tool</h2>
+                <a href="p1g.html" class="btn btn-default btn-xl wow tada">Click Here!</a>
+            </div>
+            <hr>
+        </div>
+    </aside>
+
+    <!--<section id="map"></section>-->
+    <!--<div id="map"></div>
+    <script>
+         function initMap() {
+             var myLatLng = { lat: 48.131660, lng: -122.793278 };
+
+             var map = new google.maps.Map(document.getElementById('map'), {
+                 zoom: 17,
+                 center: myLatLng
+             });
+
+             var marker = new google.maps.Marker({
+                 position: myLatLng,
+                 map: map,
+                 title: 'Hello World!'
+             });
+         }
+     </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
+     </script>-->
+    <!--<section class="no-padding" id="portfolio">
+         <div class="container-fluid">
+             <div class="row no-gutter">
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="view.html" class="portfolio-box">
+                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Jefferson County
+                                 </div>
+                                 <div class="project-name">
+                                     City of Port Townsend .46 Acres - Puget Sound - Olympic Peninsula
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="#" class="portfolio-box">
+                         <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Category
+                                 </div>
+                                 <div class="project-name">
+                                     Project Name
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="#" class="portfolio-box">
+                         <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Category
+                                 </div>
+                                 <div class="project-name">
+                                     Project Name
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="#" class="portfolio-box">
+                         <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Category
+                                 </div>
+                                 <div class="project-name">
+                                     Project Name
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="#" class="portfolio-box">
+                         <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Category
+                                 </div>
+                                 <div class="project-name">
+                                     Project Name
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                     <a href="#" class="portfolio-box">
+                         <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
+                         <div class="portfolio-box-caption">
+                             <div class="portfolio-box-caption-content">
+                                 <div class="project-category text-faded">
+                                     Category
+                                 </div>
+                                 <div class="project-name">
+                                     Project Name
+                                 </div>
+                             </div>
+                         </div>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </section>
+     -->
+
+    <section class="no-padding" id="reserve">
+        <div class="columns">
+            <ul class="price">
+                <li class="header">Single Lot</li>
+                <li class="grey">$20,000</li>
+                <li>
+                    Term: 72 months
+                    <!--https://quickclick.com/r/5kpnx-->
+                    <form action="https://payzang.transactiongateway.com/cart/cart.php" method="POST">
+                        <input type="hidden" name="key_id" value="6998869" />
+                        <input type="hidden" name="action" value="process_fixed" />
+                        <input type="hidden" name="amount" value="20000.00" />
+                        <input type="hidden" name="order_description" value="One parcel" />
+                        <input type="hidden" name="language" value="en" />
+                        <input type="hidden" name="url_finish" value="https://landestates.net" />
+                        <input type="hidden" name="customer_receipt" value="true" />
+                        <input type="hidden" name="hash" value="action|amount|order_description|41a9316e6891354b62a09c2474a18805" />
+                        <input type="submit" name="submit" value="Buy Now" />
+                    </form>
+                </li>
+                <li class="grey">
+
+                </li>
+            </ul>
+        </div>
+        <div class="columns">
+            <ul class="price">
+                <li class="header">All four lots</li>
+                <li class="grey">$ 2,500 down</li>
+                <li>$1400/mo</li>
+                <li>Term: 72 months</li>
+                <li class="grey">
+                    <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
+                        <script src="https://checkout.stripe.com/checkout.js"
+                                class="stripe-button"
+                                data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                                data-name="Real Estate Properties North America"
+                                data-description=""
+                                data-amount="250000"></script>
+                        <input name="amount" value="250000" type="hidden">
+                        <input name="description" value="250000" type="hidden">
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <br />
+        <div class="columns">
+            <ul class="price">
+                <li class="header">Cash</li>
+                <li class="grey">$80,000</li>
+                <li class="grey">Record deed</li>
+                <li class="grey"></li>
+                <li class="grey">Call to reserve</li>
+            </ul>
+        </div>
+        <br>
+        <div class="container">
+            <form action="https://formspree.io/realepna@gmail.com"
+                  method="POST">
+                <ul class="price">
+                    <li class="header">Inquiries</li>
+                    <li class="grey">Name:<input type="text" name="Name"></li>
+                    <li><input type="number" name="Telephone"></li>
+                    <li class="grey"><input type="submit" value="Send"></li>
+                    <li><input type="email" name="_replyto"></li>
+                    <li><input type="hidden" name="_subject" value="New submission!" /></li>
+                    <li class="grey"><input type="hidden" name="_next" value="index.html" /></li>
+                    <li><input type="text" name="_gotcha" style="display:none" /></li>
+                </ul>
+            </form>
+        </div>
+        <br />
+    </section>
+    {% include scripts.html %}help
+</body>
+
+</html>
