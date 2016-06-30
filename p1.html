@@ -26,6 +26,8 @@
     <![endif]-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <style>
 
         html, body {
@@ -35,6 +37,7 @@
       }
       #map {
         height: 100%;
+
       }
       .controls {
         margin-top: 10px;
@@ -347,7 +350,6 @@
     <div id="mode-selector" class="controls">
         <input type="radio" name="type" id="changemode-transit">
         <label for="changemode-transit">Transit</label>
-
         <input type="radio" name="type" id="changemode-driving">
         <label for="changemode-driving">Driving</label>
     </div>
@@ -355,9 +357,6 @@
     <div id="map">
 
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       function initMap() {
         var origin_place_id = null;
@@ -455,11 +454,12 @@
         }
       }
     </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
+        </script>
     </div>
 
      <!--<div id="map"></div>
    <script>     
-
         function initMap() {
             var myLatLng = { lat: 48.131660, lng: -122.793278 };
 
