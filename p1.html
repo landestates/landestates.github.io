@@ -26,8 +26,7 @@
     <![endif]-->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
-    </script>
+   
 
     <style>
 
@@ -360,8 +359,7 @@
     </div>
 
     <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
-    </script>
+
     <script>
       function initMap() {
         var origin_place_id = null;
@@ -372,7 +370,7 @@
           mapTypeControl: false,
           center: { lat: -33.8688, lng: 151.2195 },
           //center: { lat: 48.131660, lng: -122.793278 },
-          zoom: 17
+          zoom: 13
         });
         var directionsService = new google.maps.DirectionsService;
         var destination_input = document.getElementById('destination-input');
@@ -410,7 +408,7 @@
             map.fitBounds(place.geometry.viewport);
           } else {
             map.setCenter(place.geometry.location);
-            map.setZoom(17);
+            map.setZoom(13);
           }
         }
 
@@ -462,6 +460,8 @@
           });
         }
       }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
     </script>
         
      <!--<div id="map"></div>
