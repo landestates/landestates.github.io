@@ -354,10 +354,9 @@
         <label for="changemode-driving">Driving</label>
     </div>
 
-    <div id="map">
+    <div id="map"></div>
 
     <script>
-
       function initMap() {
         var origin_place_id = null;
         var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
@@ -372,15 +371,16 @@
         directionsDisplay.setMap(map);
 
         var origin_input = document.getElementById('origin-input');
-        var destination_input = document.getElementById('destination-input');
+        //var destination_input = document.getElementById('destination-input');
         var modes = document.getElementById('mode-selector');
 
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin_input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(destination_input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(modes);
 
         var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
         origin_autocomplete.bindTo('bounds', map);
+
         var destination_autocomplete =
             new google.maps.places.Autocomplete(destination_input);
         destination_autocomplete.bindTo('bounds', map);
@@ -456,7 +456,7 @@
     </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
         </script>
-    </div>
+    
 
      <!--<div id="map"></div>
    <script>     
