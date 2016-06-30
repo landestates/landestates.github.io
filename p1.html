@@ -468,18 +468,19 @@
             async defer></script>-->
 
 
-    <input id="origin-input" class="controls" type="text"
-           placeholder="Enter an origin location">
-    <input id="destination-input" class="controls" type="text"
-           placeholder="48.131660, -122.793278">
-
-    <div id="mode-selector" class="controls">
-        <!--<input type="radio" name="type" id="changemode-walking" checked="checked">
-        <label for="changemode-walking">Walking</label>-->
-        <input type="radio" name="type" id="changemode-transit">
-        <label for="changemode-transit">Transit</label>
-        <input type="radio" name="type" id="changemode-driving">
-        <label for="changemode-driving">Driving</label>
+    <div>
+        <input id="origin-input" class="controls" type="text"
+               placeholder="Enter an origin location">
+        <input id="destination-input" class="controls" type="text"
+               placeholder="48.131660, -122.793278">
+        <div id="mode-selector" class="controls">
+            <!--<input type="radio" name="type" id="changemode-walking" checked="checked">
+            <label for="changemode-walking">Walking</label>-->
+            <input type="radio" name="type" id="changemode-transit">
+            <label for="changemode-transit">Transit</label>
+            <input type="radio" name="type" id="changemode-driving">
+            <label for="changemode-driving">Driving</label>
+        </div>
     </div>
 
     <div id="map"></div>
@@ -487,8 +488,8 @@
     <script>
         function initMap() {
             var origin_place_id = null;
-            //var destination_place_id = null;
-            var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
+            var destination_place_id = null;
+            //var destination_place_id = new google.maps.Marker({ position: { lat: 48.131660, lng: -122.793278 }, map: map });
             var travel_mode = google.maps.TravelMode.DRIVING;
             var map = new google.maps.Map(document.getElementById('map'), {
                 mapTypeControl: false,
@@ -592,7 +593,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap"
             async defer></script>
-    <section id="map"></section>
+    <!--<section id="map"></section>-->
     <!--<div id="map"></div>
     <script>
          function initMap() {
