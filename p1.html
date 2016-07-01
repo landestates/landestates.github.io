@@ -4,7 +4,7 @@
         var content = document.querySelector('link[rel="_includes/head.html"]').import;
     </script>-->
     <!--<base href="_includes/head.htm" target="_blank">-->
-    <!--{% include head.html %}-->
+    {% include head.html %}
 
     <style>
         /*html, body {
@@ -124,6 +124,7 @@
 <body>
     <!--<link rel="import" href="_includes/navp.html">-->
     <!--<div w3-include-html="navp.html"></div>-->
+    {% include navp.html %}
     <div>
         <ul>
         <li><strong>GOLD MEDAL FISHING, BOATING: </strong>in nearby Spinney Mountain, Elevenmile and Antero Reservoirs and the South Platte River!</li>
@@ -507,7 +508,7 @@
         </div>
         <br />
     </section>
-    <!--{% include scripts.html %}-->
+    {% include scripts.html %}
     <!--<div w3-include-html="scripts.html"></div>-->
 </body>
 </html>
