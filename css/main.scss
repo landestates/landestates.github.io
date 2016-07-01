@@ -1,4 +1,4 @@
----
+﻿---
 ---
 
 @charset "utf-8";
@@ -34,7 +34,8 @@
 // }
 
 // variables.less
-$theme-primary: #F05F40;
+/*$theme-primary: #F05F40;*/ 
+$theme-primary: #5cb85c;
 $theme-dark: #222;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
