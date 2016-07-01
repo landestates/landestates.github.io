@@ -184,13 +184,10 @@
     </div>-->
 
     <div class="header-content">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h2>Property Maps:</h2>
-        <p>The .thumbnail class can be used to display an image gallery. Click on the images to see it in full size:</p>
+        <div class="header-content-inner">
+            <h2>Property Maps:</h2>
+            <p>The .thumbnail class can be used to display an image gallery. Click on the images to see it in full size:</p>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <a href=".../img/p/1/1.png" class="thumbnail">
@@ -215,7 +212,8 @@
 
     <!-- map-->
     <section class="no-padding" id="map">
-        <div width 400px; height auto>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">
             <div>
                 <input id="origin-input" class="controls" type="text"
                        placeholder="Enter an origin location">
@@ -223,7 +221,7 @@
                        value="Grant St, Port Townsend, WA 98368">
                 <div id="mode-selector" class="controls">
                     <!--<input type="radio" name="type" id="changemode-walking" checked="checked">
-                    <label for="changemode-walking">Walking</label>-->
+                <label for="changemode-walking">Walking</label>-->
                     <input type="radio" name="type" id="changemode-transit">
                     <label for="changemode-transit">Transit</label>
                     <input type="radio" name="type" id="changemode-driving">
@@ -345,6 +343,7 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap"
                     async defer></script>
         </div>
+        <div class="col-md-4">.col-md-4</div>
     </section>
 
     <!--aside-->
@@ -357,6 +356,7 @@
             </div>
             <hr>
         </div>
+
     </aside>
 
     <!--<section id="map"></section>-->
@@ -532,8 +532,8 @@
                 <li class="grey">Call to reserve</li>
             </ul>
         </div>
-        <br></br>
-        <div class="container">
+
+        <!--<div class="container">
             <form action="https://formspree.io/realepna@gmail.com"
                   method="POST">
                 <ul class="price">
@@ -547,7 +547,7 @@
                     <li><input type="text" name="_gotcha" style="display:none" /></li>
                 </ul>
             </form>
-        </div>
+        </div>-->
 
     </section>
 
