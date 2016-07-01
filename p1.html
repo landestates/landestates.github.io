@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <!--<link rel="import" href="_includes/head.html">-->
-    <script>
+    <!--<script>
         var content = document.querySelector('link[rel="_includes/head.html"]').import;
-    </script>
+    </script>-->
+    <base href="_includes/head.htm" target="_blank">
     <style>
         html, body {
             height: 100%;
@@ -509,6 +508,7 @@
         <br />
     </section>
     {% include scripts.html %}help
+
     <div w3-include-html="scripts.html"></div>
 </body>
 </html>
