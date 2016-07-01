@@ -3,7 +3,8 @@
     <!--<script>
         var content = document.querySelector('link[rel="_includes/head.html"]').import;
     </script>-->
-    <base href="_includes/head.htm" target="_blank">
+    <!--<base href="_includes/head.htm" target="_blank">-->
+    {% include head.html %}
     <style>
         html, body {
             height: 100%;
@@ -505,8 +506,8 @@
         </div>
         <br />
     </section>
-    {% include scripts.html %}help
+    {% include scripts.html %}
 
-    <div w3-include-html="scripts.html"></div>
+    <!--<div w3-include-html="scripts.html"></div>-->
 </body>
 </html>
