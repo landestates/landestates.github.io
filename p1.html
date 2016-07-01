@@ -374,131 +374,13 @@
 
     </aside>
 
-    <!--<section id="map"></section>-->
-    <!--<div id="map"></div>
-    <script>
-         function initMap() {
-             var myLatLng = { lat: 48.131660, lng: -122.793278 };
-
-             var map = new google.maps.Map(document.getElementById('map'), {
-                 zoom: 17,
-                 center: myLatLng
-             });
-
-             var marker = new google.maps.Marker({
-                 position: myLatLng,
-                 map: map,
-                 title: 'Hello World!'
-             });
-         }
-     </script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places">
-     </script>-->
-    <!--<section class="no-padding" id="portfolio">
-         <div class="container-fluid">
-             <div class="row no-gutter">
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="view.html" class="portfolio-box">
-                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Jefferson County
-                                 </div>
-                                 <div class="project-name">
-                                     City of Port Townsend .46 Acres - Puget Sound - Olympic Peninsula
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="#" class="portfolio-box">
-                         <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Category
-                                 </div>
-                                 <div class="project-name">
-                                     Project Name
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="#" class="portfolio-box">
-                         <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Category
-                                 </div>
-                                 <div class="project-name">
-                                     Project Name
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="#" class="portfolio-box">
-                         <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Category
-                                 </div>
-                                 <div class="project-name">
-                                     Project Name
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="#" class="portfolio-box">
-                         <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Category
-                                 </div>
-                                 <div class="project-name">
-                                     Project Name
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-                 <div class="col-lg-4 col-sm-6">
-                     <a href="#" class="portfolio-box">
-                         <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                         <div class="portfolio-box-caption">
-                             <div class="portfolio-box-caption-content">
-                                 <div class="project-category text-faded">
-                                     Category
-                                 </div>
-                                 <div class="project-name">
-                                     Project Name
-                                 </div>
-                             </div>
-                         </div>
-                     </a>
-                 </div>
-             </div>
-         </div>
-     </section>
-     -->
-
     <section class="no-padding" id="reserve">
         <div class="columns">
             <ul class="price">
                 <li class="header">Single Lot</li>
                 <li class="grey">$20,000</li>
-                <li>
-                    Term: 72 months
+                <li>Term: 72 months</li>
+                <li class="grey">
                     <!--https://quickclick.com/r/5kpnx-->
                     <form action="https://payzang.transactiongateway.com/cart/cart.php" method="POST">
                         <input type="hidden" name="key_id" value="6998869" />
@@ -509,11 +391,9 @@
                         <input type="hidden" name="url_finish" value="https://landestates.net" />
                         <input type="hidden" name="customer_receipt" value="true" />
                         <input type="hidden" name="hash" value="action|amount|order_description|41a9316e6891354b62a09c2474a18805" />
-                        <input type="submit" name="submit" value="Buy Now" />
+                        <button type="submit" name="submit" class="btn btn-success">Reserve with eCheck or Card</button>
+                        <!--<input type="submit" name="submit" value="Buy Now" />-->
                     </form>
-                </li>
-                <li class="grey">
-
                 </li>
             </ul>
         </div>
@@ -524,27 +404,17 @@
                 <li>$1400/mo</li>
                 <li>Term: 72 months</li>
                 <li class="grey">
-                    <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
-                        <script src="https://checkout.stripe.com/checkout.js"
-                                class="stripe-button"
-                                data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
-                                data-name="Real Estate Properties North America"
-                                data-description=""
-                                data-amount="250000"></script>
-                        <input name="amount" value="250000" type="hidden">
-                        <input name="description" value="250000" type="hidden">
-                    </form>
+                    
                 </li>
             </ul>
         </div>
-        <br />
         <div class="columns">
             <ul class="price">
                 <li class="header">Cash</li>
                 <li class="grey">$80,000</li>
-                <li class="grey">Record deed</li>
-                <li class="grey"></li>
-                <li class="grey">Call to reserve</li>
+                <li>Record deed</li>
+                <li></li>
+                <li>Call to reserve</li>
             </ul>
         </div>
 
