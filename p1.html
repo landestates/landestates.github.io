@@ -234,7 +234,6 @@
                 <input type="radio" name="type" id="changemode-driving">
                 <label for="changemode-driving">Driving</label>
             </div>
-            <small><a href="https://goo.gl/maps/Gx1W7BTGnD62" style="color:#0000FF;text-align:left">View Larger Map</a></small>
             <script>
                 function initMap() {
                     var origin_place_id = null;
@@ -246,7 +245,8 @@
                         mapTypeControl: false,
                         //center: { lat: -33.8688, lng: 151.2195 },
                         center: { lat: 48.131660, lng: -122.793278 },
-                        zoom: 17
+                        zoom: 17,
+                        fullscreenControl: boolean
                     });
                     var marker = new google.maps.Marker({
                         position: { lat: 48.131660, lng: -122.793278 },
