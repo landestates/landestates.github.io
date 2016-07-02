@@ -137,6 +137,64 @@
                 width: 100%;
             }
         }
+
+        /*// Homepage Header*/
+
+    header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    @include background-cover;
+    background-position: center;
+    background-image: url('img/p/1/1.jpg');
+    text-align: center;
+    color: #000;
+    .header-content {
+        position: relative;
+        text-align: center;
+        padding: 100px 15px 100px;
+        width: 100%;
+        .header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            hr {
+                margin: 30px auto;
+            }
+            p {
+                font-weight: 300;
+                color: rgba(white, .7);
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        min-height: 100%;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 0 50px;
+            .header-content-inner {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                p {
+                    font-size: 18px;
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
     </style>
 
 </head>
@@ -175,6 +233,16 @@
         </div>
     </nav>
 
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Real Estate Properties North America</h1>
+                <!--<hr>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>-->
+            </div>
+        </div>
+    </header>
+
     <!--<link rel="import" href="/_includes/navp.html">-->
     <!--<div w3-include-html="navp.html"></div>-->
     <!--{% include navp.html %}-->
@@ -201,7 +269,7 @@
         <p><strong>Pictures of this Property:</strong></p>
     </div>-->
 
-    <!--<div class="header-content">
+    <div class="header-content">
         <div class="header-content-inner">
             <h2>Property Maps:</h2>
             <p>The .thumbnail class can be used to display an image gallery. Click on the images to see it in full size:</p>
@@ -226,7 +294,7 @@
                 </a>
             </div>
         </div>
-    </div>-->
+    </div>
 
     <!-- map-->
     <div class="row" id="gmap">
