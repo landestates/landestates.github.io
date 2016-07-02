@@ -216,12 +216,12 @@ header {
         background-image: url('/img/p/1/1.jpg');
         text-align: center;
         color: #000;
-        .header-content {
+        .pheader-content {
             position: relative;
             text-align: center;
             padding: 100px 15px 100px;
             width: 100%;
-            .header-content-inner {
+            .pheader-content-inner {
                 h1 {
                     font-weight: 700;
                     text-transform: uppercase;
@@ -241,14 +241,14 @@ header {
         }
         @media (min-width: 768px) {
             min-height: 100%;
-            .header-content {
+            .pheader-content {
                 position: absolute;
                 top: 50%;
                 -webkit-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 padding: 0 50px;
-                .header-content-inner {
+                .pheader-content-inner {
                     max-width: 1000px;
                     margin-left: auto;
                     margin-right: auto;
