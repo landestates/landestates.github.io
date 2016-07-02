@@ -187,17 +187,15 @@
     <!--Carousel-->
     <div class="container">
         <br>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li class="item1 active"></li>
+                <li class="item2"></li>
+                <li class="item3"></li>
+                <li class="item4"></li>
             </ol>
+            
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
@@ -282,15 +280,16 @@
             $(".item4").click(function(){
                 $("#myCarousel").carousel(3);
             })
-            $(".item4").click(function () {
-                $("#myCarousel").carousel(4);
-            })
-            $(".item4").click(function () {
-                $("#myCarousel").carousel(5);
-            })
-            $(".item4").click(function () {
-                $("#myCarousel").carousel(6);
-            });
+            //$(".item4").click(function () {
+            //    $("#myCarousel").carousel(4);
+            //})
+            //$(".item4").click(function () {
+            //    $("#myCarousel").carousel(5);
+            //})
+            //$(".item4").click(function () {
+            //    $("#myCarousel").carousel(6);
+            //})
+            ;
 
             // Enable Carousel Controls
             $(".left").click(function(){
