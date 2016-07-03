@@ -30,18 +30,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    // Toggle tranparent navbar when the user scrolls the page
+    <!--Toggle tranparent navbar when the user scrolls the page-->
 
-    <script>
-    $(window).scroll(function() {
-    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
-    {
-    $('.opaque-navbar').addClass('opaque');
-    } else {
-    $('.opaque-navbar').removeClass('opaque');
-    }
-    });
-    </script>
+    
 
     <style>
         #map {
@@ -219,6 +210,7 @@ ul.dropdown-menu {
 </head>
 
 <body>
+
     <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
         <div class="container">
             <div class="navbar-header">
@@ -235,23 +227,6 @@ ul.dropdown-menu {
                     <li><a href="#">Services and Pricing</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-    <section class="banner">
-        <div class="container">
-            <div class="row">
-                <h1>Transparent Background Example</h1>
-            </div>
-        </div>
-    </section>
-
-
-    <div class="container">
-        <div class="row" style="height:800px;">
-            <div class="cold-md-12">
-                <h2>Page Content</h2>
-                <p>This is an example of a navbar that is initially opaque, then turns into a solid background when user scrolls down the page.</p>
             </div>
         </div>
     </div>
@@ -687,6 +662,16 @@ ul.dropdown-menu {
 
     </section>
 
+    <script>
+    $(window).scroll(function() {
+    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
+    {
+    $('.opaque-navbar').addClass('opaque');
+    } else {
+    $('.opaque-navbar').removeClass('opaque');
+    }
+    });
+    </script>
 
 </body>
 
