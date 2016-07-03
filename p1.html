@@ -174,13 +174,21 @@
 /***********************************************************************
 *  OPAQUE NAVBAR SECTION
 ***********************************************************************/
+
 .opaque-navbar {
     /*background-color: rgba(0,0,0,0.5);*/
     background-color: black;
+    @include sans-serif-font;
+    text-transform: uppercase;
     /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
-    height: 60px;
+    /*height: 60px;*/
     border-bottom: 0px;
     transition: background-color .5s ease 0s;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+
+                
 }
 
 .opaque-navbar.opaque {
