@@ -30,11 +30,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    // Toggle tranparent navbar when the user scrolls the page
 
+    <script>
+    $(window).scroll(function() {
+    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
+    {
+    $('.opaque-navbar').addClass('opaque');
+    } else {
+    $('.opaque-navbar').removeClass('opaque');
+    }
+    });
+    </script>
 
     <style>
-          
-
         #map {
             width: 80%;
             height: 60%;
@@ -149,17 +158,109 @@
         #override{color:black;}
         navbar-dark {color:black;
         }*/
-        </style>
+    /*Nav bar*/
+    section
+{
+  background:yellow;
+}
+.banner
+{
+  background:red;
+  min-height:200px;
+}
+.banner .row
+{
+  text-align:center;
+  margin-top:50px;
+}
+.banner h1
+{
+  color:white;
+}
+
+
+
+/***********************************************************************
+*  OPAQUE NAVBAR SECTION
+***********************************************************************/
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 60px;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+ul.dropdown-menu {
+    background-color: black;
+}
+
+
+@media (max-width: 992px) {
+  body
+  {
+    background:red;
+  }
+  .opaque-navbar {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+}    
+    </style>
 
 </head>
 
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
+                    <span class="glyphicon glyphicon-chevron-right" style="color:white;"></span>
+
+                </button>
+                <a class="navbar-brand" href="#">Your Company</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services and Pricing</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <h1>Transparent Background Example</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="row" style="height:800px;">
+            <div class="cold-md-12">
+                <h2>Page Content</h2>
+                <p>This is an example of a navbar that is initially opaque, then turns into a solid background when user scrolls down the page.</p>
+            </div>
+        </div>
+    </div>
     <!--<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">-->
-    <nav class="navbar-fixed-top navbar-dark" style="color:black;" id="#override">
-        <div class="container-fluid" style="color:black;">
+    <!--<nav class="navbar-default navbar-dark">
+        <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header" style="color:black;">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="color:black;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -169,14 +270,14 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-            <div class="collapse navbar-collapse" style="color:black;">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
+                    <!--<li>
+                        <a class="page-scroll" href=""></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a class="page-scroll" href="#gmap">Map & Directions</a>
                     </li>
@@ -187,7 +288,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-    </nav>
+    </nav>-->
 
     <div class="jumbotron">
         <div class="container text-center">
