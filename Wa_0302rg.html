@@ -43,8 +43,25 @@
     </style>
 </head>
 <body>
-    <div w3-include-html="head.html"></div>
-    <div w3-include-html="nav1.html"></div>
+    <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
+                    <span class="glyphicon glyphicon-chevron-right" style="color:white;"></span>
+
+                </button>
+                <a class="navbar-brand" href="index">Real Estate Properties North America</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div id="floating-panel">
         <input id="latlng" type="text" value="48.131367, -122.791849">
@@ -69,9 +86,11 @@
         var input = document.getElementById('latlng').value;
         var latlngStr = input.split(',', 2);
         var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-        geocoder.geocode({'location': latlng}, function(results, status) {
+
+         
+        geocoder.geocode({ 'location': latlng }, function (results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
+            if (results[0]) {
               map.setZoom(17);
               var marker = new google.maps.Marker({
                 position: latlng,
@@ -87,6 +106,8 @@
           }
         });
       }
+
+        
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktQmfuTbhNHmabw-Z8oDhD6euhC3V_54&libraries=places&callback=initMap">
