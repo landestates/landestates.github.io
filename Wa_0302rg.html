@@ -109,13 +109,13 @@
 
                 geocoder.geocode({ 'location': latlng }, function (results, status) {
                     if (status === google.maps.GeocoderStatus.OK) {
-                        if (results[1]) {
+                        if (results[0]) {
                             map.setZoom(17);
                             var marker = new google.maps.Marker({
                                 position: latlng,
                                 map: map
                             });
-                            infowindow.setContent(results[1].formatted_address);
+                            infowindow.setContent(results[0].formatted_address);
                             infowindow.open(map, marker);
                         } else {
                             window.alert('No results found');
