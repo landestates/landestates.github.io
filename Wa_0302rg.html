@@ -80,11 +80,12 @@
         </div>
     </div>
 
-    <div id="floating-panel">
+    <div id="map">
+        <div>
         <input id="latlng" type="text" value="48.131367, -122.791849">
         <input id="submit" type="button" value="Reverse Geocode">
     </div>
-    <div id="map"></div>
+    <div ></div>
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -107,13 +108,13 @@
          
         geocoder.geocode({ 'location': latlng }, function (results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            if (results[0]) {
+            if (results[1]) {
               map.setZoom(17);
               var marker = new google.maps.Marker({
                 position: latlng,
                 map: map
               });
-              infowindow.setContent(results[0].formatted_address);
+              infowindow.setContent(results[1].formatted_address);
               infowindow.open(map, marker);
             } else {
               window.alert('No results found');
@@ -131,6 +132,8 @@
     </script>
 
     <div w3-include-html="scripts.html"></div>
+        </div>
+
 </body>
 
 </html>
