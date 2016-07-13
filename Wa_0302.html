@@ -684,7 +684,21 @@
                     <li>Returns 90 days</li>
                     <li>Immediately Record deed</li>
                     <li>Includes Title Insurance</li>
-                    <li class="grey">Call to reserve</li>
+                    <li class="grey">
+                        <!--https://quickclick.com/r/izcpn-->
+                        <form action="https://payzang.transactiongateway.com/cart/cart.php" method="POST">
+                            <input type="hidden" name="key_id" value="6998869" />
+                            <input type="hidden" name="action" value="process_fixed" />
+                            <input type="hidden" name="amount" value="25000.00" />
+                            <input type="hidden" name="order_description" value="Two Lots in Port Townsend " />
+                            <input type="hidden" name="language" value="en" />
+                            <input type="hidden" name="url_finish" value="http://landestates.net/tyautoredirect" />
+                            <input type="hidden" name="customer_receipt" value="true" />
+                            <input type="hidden" name="hash" value="action|amount|order_description|3bf8f6f5a45b2bf4a50dc8bc691d61e1" />
+                            <!--<input type="submit" name="submit" value="Buy Now" />-->
+                            <button type="submit" name="submit" class="btn btn-success">Reserve with eCheck or Card</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
             <div class="columns">
