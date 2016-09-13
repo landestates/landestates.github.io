@@ -105,13 +105,15 @@
                 </form>
             </li>
             <li>
+
 <button id='linkButton'>Open Plaid Link</button>
 <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+
 <script>
 var linkHandler = Plaid.create({
   env: 'tartan',
   clientName: 'Stripe / Plaid Test',
-  key: '[Plaid key]',
+  key: '750a6040bcfb16af6b74ebdd57f513',
   product: 'auth',
   selectAccount: true,
   onSuccess: function(public_token, metadata) {
@@ -125,7 +127,10 @@ var linkHandler = Plaid.create({
 document.getElementById('linkButton').onclick = function() {
   linkHandler.open();
 };
+
 </script>
+
+
 </li>
         </ul>
     </div>
