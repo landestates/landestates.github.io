@@ -130,6 +130,43 @@ document.getElementById('linkButton').onclick = function() {
 
 </script>
 
+<br>
+<button id='linkButton'>Open Link - Institution Select</button>
+<button id='bofaButton'>Open Link - Bank of America</button>
+<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+<script>
+  var linkHandler = Plaid.create({
+    env: 'tartan',
+    clientName: 'Client Name',
+    key: 'test_key',
+    product: 'auth',
+    // To use Link with longtail institutions on Connect, set the
+    // 'longtail' option to true:
+    // longtail: true,
+    onLoad: function() {
+      // The Link module finished loading.
+    },
+    onSuccess: function(public_token, metadata) {
+      // Send the public_token to your app server here.
+      // The metadata object contains info about the institution the
+      // user selected and the account ID, if selectAccount is enabled.
+    },
+    onExit: function() {
+      // The user exited the Link flow.
+    }
+  });
+
+  // Trigger the BofA login view
+  document.getElementById('bofaButton').onclick = function() {
+    linkHandler.open('bofa');
+  };
+
+  // Trigger the standard institution select view
+  document.getElementById('linkButton').onclick = function() {
+    linkHandler.open();
+  };
+</script>
+
 
 </li>
         </ul>
