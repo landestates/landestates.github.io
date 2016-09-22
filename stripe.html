@@ -85,10 +85,96 @@
     <div class="columns"></div>
     <div class="columns">
         <ul class="price">
-            <li>
+            <li class="header"> Stripe Payment Page in <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Alpha</a></li>
+            <li><a href="www.commencepayments.com">Commencepayments</a>
                 <script src="https://www.commencepayments.com/v2/commence.js" data-payment-method="ACH" data-amount="100000" data-currency="USD" data-description="Land" data-name="REPNA" data-key="pk_test_LFey6eLOImoyglgrEu4cXMEN"></script>
             </li>
-            <li class="header"> Stripe Payment Page in <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Alpha</a></li>
+            <li>
+                <a href="https://github.com/landestates/flatmarket-server-heroku">fork of landestates/flatmarket-server-heroku</a> autodeployed to <a href="http://landestates-flatmarket-heroku.herokuapp.com/">landestates-flatmarket-heroku.herokuapp.com</a> 
+                <form action="https://landestates-flatmarket-heroku.herokuapp.com/" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                            data-name="Real Estate Properties North America"
+                            data-description=""
+                            data-amount="9999999"></script>
+                    <input name="amount" value="9999999" type="hidden">
+                    <input name="description" value="9999999" type="hidden">
+                </form>
+            </li>
+            <li class="grey">
+                <a href="landestates/flatmarket-server-heroku">fork of authinking/heroku-stripe-checkout</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">herokustripecheckout.herokuapp.com</a>
+                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                            data-name="Real Estate Properties North America"
+                            data-description=""
+                            data-amount="9999999"></script>
+                    <input name="amount" value="9999999" type="hidden">
+                    <input name="description" value="9999999" type="hidden">
+                </form>
+            </li>
+            <li>
+                <button id='linkButton'>Open Plaid Link</button>
+                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+                <script>
+                var linkHandler = Plaid.create({
+                  env: 'tartan',
+                  clientName: 'Stripe / Plaid Test',
+                  key: '750a6040bcfb16af6b74ebdd57f513',
+                  product: 'auth',
+                  selectAccount: true,
+                  onSuccess: function(public_token, metadata) {
+                    // Send the public_token and account ID to your app server.
+                    console.log('public_token: ' + public_token);
+                    console.log('account ID: ' + metadata.account_id);
+                  },
+                });
+                
+                // Trigger the Link UI
+                document.getElementById('linkButton').onclick = function() {
+                  linkHandler.open();
+                };
+                
+                </script>
+                
+                <br>
+                <button id='linkButton'>Open Link - Institution Select</button><br>
+                <button id='bofaButton'>Open Link - Bank of America</button>
+                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+                <script>
+                  var linkHandler = Plaid.create({
+                    env: 'tartan',
+                    clientName: 'Client Name',
+                    key: 'test_key',
+                    product: 'auth',
+                    // To use Link with longtail institutions on Connect, set the
+                    // 'longtail' option to true:
+                    // longtail: true,
+                    onLoad: function() {
+                      // The Link module finished loading.
+                    },
+                    onSuccess: function(public_token, metadata) {
+                      // Send the public_token to your app server here.
+                      // The metadata object contains info about the institution the
+                      // user selected and the account ID, if selectAccount is enabled.
+                    },
+                    onExit: function() {
+                      // The user exited the Link flow.
+                    }
+                  });
+                  // Trigger the BofA login view
+                  document.getElementById('bofaButton').onclick = function() {
+                    linkHandler.open('bofa');
+                  };
+                
+                  // Trigger the standard institution select view
+                  document.getElementById('linkButton').onclick = function() {
+                    linkHandler.open();
+                  };
+                </script>
+            </li>
             <li class="grey">
                 <a>Form post to create customer token</a>
                 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -177,107 +263,6 @@
                     });
                 });
                </script> 
-            </li>
-            <li>
-                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of landestates/flatmarket-server-heroku</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">this heroku app</a> </a>
-                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
-                    <script src="https://checkout.stripe.com/checkout.js"
-                            class="stripe-button"
-                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
-                            data-name="Real Estate Properties North America"
-                            data-description=""
-                            data-amount="9999999"></script>
-                    <input name="amount" value="9999999" type="hidden">
-                    <input name="description" value="9999999" type="hidden">
-                </form>
-            </li>
-            <li>
-                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">this heroku app</a> </a>
-                
-                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a>
-                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
-                    <script src="https://checkout.stripe.com/checkout.js"
-                            class="stripe-button"
-                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
-                            data-name="Real Estate Properties North America"
-                            data-description=""
-                            data-amount="9999999"></script>
-                    <input name="amount" value="9999999" type="hidden">
-                    <input name="description" value="9999999" type="hidden">
-                </form>
-            </li>
-            <li class="grey">
-                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a>
-                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
-                    <script src="https://checkout.stripe.com/checkout.js"
-                            class="stripe-button"
-                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
-                            data-name="Real Estate Properties North America"
-                            data-description=""
-                            data-amount="9999999"></script>
-                    <input name="amount" value="9999999" type="hidden">
-                    <input name="description" value="9999999" type="hidden">
-                </form>
-            </li>
-            <li>
-                <button id='linkButton'>Open Plaid Link</button>
-                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-                <script>
-                var linkHandler = Plaid.create({
-                  env: 'tartan',
-                  clientName: 'Stripe / Plaid Test',
-                  key: '750a6040bcfb16af6b74ebdd57f513',
-                  product: 'auth',
-                  selectAccount: true,
-                  onSuccess: function(public_token, metadata) {
-                    // Send the public_token and account ID to your app server.
-                    console.log('public_token: ' + public_token);
-                    console.log('account ID: ' + metadata.account_id);
-                  },
-                });
-                
-                // Trigger the Link UI
-                document.getElementById('linkButton').onclick = function() {
-                  linkHandler.open();
-                };
-                
-                </script>
-                
-                <br>
-                <button id='linkButton'>Open Link - Institution Select</button>
-                <button id='bofaButton'>Open Link - Bank of America</button>
-                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-                <script>
-                  var linkHandler = Plaid.create({
-                    env: 'tartan',
-                    clientName: 'Client Name',
-                    key: 'test_key',
-                    product: 'auth',
-                    // To use Link with longtail institutions on Connect, set the
-                    // 'longtail' option to true:
-                    // longtail: true,
-                    onLoad: function() {
-                      // The Link module finished loading.
-                    },
-                    onSuccess: function(public_token, metadata) {
-                      // Send the public_token to your app server here.
-                      // The metadata object contains info about the institution the
-                      // user selected and the account ID, if selectAccount is enabled.
-                    },
-                    onExit: function() {
-                      // The user exited the Link flow.
-                    }
-                  });
-                  // Trigger the BofA login view
-                  document.getElementById('bofaButton').onclick = function() {
-                    linkHandler.open('bofa');
-                  };
-                
-                  // Trigger the standard institution select view
-                  document.getElementById('linkButton').onclick = function() {
-                    linkHandler.open();
-                  };
-                </script>
             </li>
         </ul>
     </div>
