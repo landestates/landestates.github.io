@@ -134,8 +134,8 @@
                 </form>
                 <span class="payment-errors"></span>
                 <span class="payment-success"></span>
+                <script>
                 Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-
                 function stripeResponseHandler(status, response) {
                     if (response.error) {
                         // re-enable the submit button
@@ -176,7 +176,7 @@
                         return false; // submit from callback
                     });
                 });
-                
+               </script> 
             </li>
             <li>
                 <a href="https://github.com/landestates/heroku-stripe-checkout">fork of landestates/flatmarket-server-heroku</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">this heroku app</a> </a>
