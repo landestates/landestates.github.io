@@ -80,19 +80,106 @@
             }
         }
     </style>
-
 </head>
 <body>
-    
-    <div class="columns">
-    </div>
+    <div class="columns"></div>
     <div class="columns">
         <ul class="price">
-            <li class="header">Stripe Payment Page</li>
-            <li class="grey"></li>
-            <li>$99,999.99</li>
-            <li></li>
+            <li>
+                <script src="https://www.commencepayments.com/v2/commence.js" data-payment-method="ACH" data-amount="100000" data-currency="USD" data-description="Land" data-name="REPNA" data-key="pk_test_LFey6eLOImoyglgrEu4cXMEN"></script>
+            </li>
+            <li class="header"> Stripe Payment Page in <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle">Alpha</a></li>
             <li class="grey">
+                <a>Form post to create customer token</a>
+                <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+                <form action="" method="POST" id="bank-account-form">
+                    <div class="form-row">
+                        <label for="country">Country</label>
+                        <select class="country">
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="FR">France</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="currency">Currency</label>
+                        <select class="currency">
+                            <option value="USD">US Dollar</option>
+                            <option value="CAD">Canadian Dollar</option>
+                            <option value="GBP">Pound</option>
+                            <option value="EUR">Euro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="routing-number">Routing Number</label>
+                        <input type="text" class="routing-number" value="110000000" />
+                    </div>
+                    <div class="form-row">
+                        <label for="account-number">Account Number</label>
+                        <input type="text" class="account-number" value="000123456789" />
+                    </div>
+                    <div class="form-row">
+                        <label for="account-holder-name">Account Holder Name</label>
+                        <input type="text" class="account-holder-name" value="Jane Austen" />
+                    </div>
+                    <div class="form-row">
+                        <label for="account-holder-type">Account Holder Type</label>
+                        <select class="account-holder-type">
+                            <option value="individual">Individual</option>
+                            <option value="company">Company</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+                <span class="payment-errors"></span>
+                <span class="payment-success"></span>
+                Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+
+                function stripeResponseHandler(status, response) {
+                    if (response.error) {
+                        // re-enable the submit button
+                        $('.submit-button').removeAttr("disabled");
+                        // show the errors on the form
+                        console.log(response.error);
+                        $(".payment-success").html("");
+                        $(".payment-errors").html(response.error.message);
+                    } else {
+                        var $form = $("#bank-account-form");
+                        // token contains id, last4, and card type
+                        var token = response['id'];
+                        // insert the token into the form so it gets submitted to the server
+                        $form.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+                        // and submit
+                        //$form.get(0).submit();
+                        // just for this example:
+                        console.log(response);
+                        $(".payment-success").html(token);
+                        $(".payment-errors").html("");
+                        $('.submit-button').removeAttr("disabled");
+                    }
+                }
+                
+                $(document).ready(function () {
+                    $("#bank-account-form").submit(function (event) {
+                        // disable the submit button to prevent repeated clicks
+                        $('.submit-button').attr("disabled", "disabled");
+                        // createToken returns immediately - the supplied callback submits the form if there are no errors
+                        Stripe.bankAccount.createToken({
+                            country: $('.country').val(),
+                            currency: $('.currency').val(),
+                            routing_number: $('.routing-number').val(),
+                            account_number: $('.account-number').val(),
+                        		account_holder_name: $('.account-holder-name').val(),
+                            account_holder_type: $('.account-holder-type').val()
+                        }, stripeResponseHandler);
+                        return false; // submit from callback
+                    });
+                });
+                
+            </li>
+            <li>
+                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of landestates/flatmarket-server-heroku</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">this heroku app</a> </a>
                 <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
                     <script src="https://checkout.stripe.com/checkout.js"
                             class="stripe-button"
@@ -105,73 +192,97 @@
                 </form>
             </li>
             <li>
-
-<button id='linkButton'>Open Plaid Link</button>
-<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-
-<script>
-var linkHandler = Plaid.create({
-  env: 'tartan',
-  clientName: 'Stripe / Plaid Test',
-  key: '750a6040bcfb16af6b74ebdd57f513',
-  product: 'auth',
-  selectAccount: true,
-  onSuccess: function(public_token, metadata) {
-    // Send the public_token and account ID to your app server.
-    console.log('public_token: ' + public_token);
-    console.log('account ID: ' + metadata.account_id);
-  },
-});
-
-// Trigger the Link UI
-document.getElementById('linkButton').onclick = function() {
-  linkHandler.open();
-};
-
-</script>
-
-<br>
-<button id='linkButton'>Open Link - Institution Select</button>
-<button id='bofaButton'>Open Link - Bank of America</button>
-<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-<script>
-  var linkHandler = Plaid.create({
-    env: 'tartan',
-    clientName: 'Client Name',
-    key: 'test_key',
-    product: 'auth',
-    // To use Link with longtail institutions on Connect, set the
-    // 'longtail' option to true:
-    // longtail: true,
-    onLoad: function() {
-      // The Link module finished loading.
-    },
-    onSuccess: function(public_token, metadata) {
-      // Send the public_token to your app server here.
-      // The metadata object contains info about the institution the
-      // user selected and the account ID, if selectAccount is enabled.
-    },
-    onExit: function() {
-      // The user exited the Link flow.
-    }
-  });
-
-  // Trigger the BofA login view
-  document.getElementById('bofaButton').onclick = function() {
-    linkHandler.open('bofa');
-  };
-
-  // Trigger the standard institution select view
-  document.getElementById('linkButton').onclick = function() {
-    linkHandler.open();
-  };
-</script>
-
-
-</li>
+                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a> autodeployed to <a href="https://herokustripecheckout.herokuapp.com/">this heroku app</a> </a>
+                
+                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a>
+                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                            data-name="Real Estate Properties North America"
+                            data-description=""
+                            data-amount="9999999"></script>
+                    <input name="amount" value="9999999" type="hidden">
+                    <input name="description" value="9999999" type="hidden">
+                </form>
+            </li>
+            <li class="grey">
+                <a href="https://github.com/landestates/heroku-stripe-checkout">fork of authinking/heroku-stripe-checkout</a>
+                <form action="https://herokustripecheckout.herokuapp.com/" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="pk_test_S6DE4W7DYxEjV4ZcmY27TfKm"
+                            data-name="Real Estate Properties North America"
+                            data-description=""
+                            data-amount="9999999"></script>
+                    <input name="amount" value="9999999" type="hidden">
+                    <input name="description" value="9999999" type="hidden">
+                </form>
+            </li>
+            <li>
+                <button id='linkButton'>Open Plaid Link</button>
+                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+                <script>
+                var linkHandler = Plaid.create({
+                  env: 'tartan',
+                  clientName: 'Stripe / Plaid Test',
+                  key: '750a6040bcfb16af6b74ebdd57f513',
+                  product: 'auth',
+                  selectAccount: true,
+                  onSuccess: function(public_token, metadata) {
+                    // Send the public_token and account ID to your app server.
+                    console.log('public_token: ' + public_token);
+                    console.log('account ID: ' + metadata.account_id);
+                  },
+                });
+                
+                // Trigger the Link UI
+                document.getElementById('linkButton').onclick = function() {
+                  linkHandler.open();
+                };
+                
+                </script>
+                
+                <br>
+                <button id='linkButton'>Open Link - Institution Select</button>
+                <button id='bofaButton'>Open Link - Bank of America</button>
+                <script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+                <script>
+                  var linkHandler = Plaid.create({
+                    env: 'tartan',
+                    clientName: 'Client Name',
+                    key: 'test_key',
+                    product: 'auth',
+                    // To use Link with longtail institutions on Connect, set the
+                    // 'longtail' option to true:
+                    // longtail: true,
+                    onLoad: function() {
+                      // The Link module finished loading.
+                    },
+                    onSuccess: function(public_token, metadata) {
+                      // Send the public_token to your app server here.
+                      // The metadata object contains info about the institution the
+                      // user selected and the account ID, if selectAccount is enabled.
+                    },
+                    onExit: function() {
+                      // The user exited the Link flow.
+                    }
+                  });
+                  // Trigger the BofA login view
+                  document.getElementById('bofaButton').onclick = function() {
+                    linkHandler.open('bofa');
+                  };
+                
+                  // Trigger the standard institution select view
+                  document.getElementById('linkButton').onclick = function() {
+                    linkHandler.open();
+                  };
+                </script>
+            </li>
         </ul>
     </div>
-    <div class="columns">
+    
+<div class="columns">
     </div>
     <br />
 <footer class="container-fluid text-center">
