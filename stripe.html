@@ -264,6 +264,79 @@
                 });
                </script> 
             </li>
+            <li>
+                <script type="text/javascript" src="https://js.stripe.com/v2/">
+                    Stripe.setPublishableKey('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+                function stripeResponseHandler(status, response) {
+                    if (response.error) {
+                        // re-enable the submit button
+                        $('.submit-button').removeAttr("disabled");
+                        // show the errors on the form
+                        console.log(response.error);
+                        $(".payment-success").html("");
+                        $(".payment-errors").html(response.error.message);
+                    } else {
+                        var $form = $("#customer-charge-form");
+                        // token contains id, last4, and card type
+                        var token = response['id'];
+                        // insert the token into the form so it gets submitted to the server
+                        $form.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+                        // and submit
+                        //$form.get(0).submit();
+                        // just for this example:
+                        console.log(response);
+                        $(".payment-success").html(token);
+                        $(".payment-errors").html("");
+                        $('.submit-button').removeAttr("disabled");
+                    }
+                }
+                $(document).ready(function () {
+                    $("#customer-charge-form").submit(function (event) {
+                        // disable the submit button to prevent repeated clicks
+                        $('.submit-button').attr("disabled", "disabled");
+                        // createToken returns immediately - the supplied callback submits the form if there are no errors
+                        Stripe.bankAccount({
+                            customerToken
+                            amount2
+                            amount1
+                            merchantPrivateToken
+                            customerToken
+                            currency: $('.currency').val()
+                        }, stripeResponseHandler);
+                        return false; // submit from callback
+                    });
+                });
+                                </script>
+                <form action="https://api.stripe.com/v1/charges" method="POST" id="customer-charge-form">
+                    <div class="form-row">
+                        <input type="hidden"  class="merchantPrivateToken" value="sk_test_StTgRZRNZvTEQL808Gl7EiIt" />
+                    </div>
+                    <div class="form-row">
+                        <label for="amount1">Amount 1</label>
+                        <input type="text" class="amount1" value="32" />
+                    </div>
+                    <div class="form-row">
+                        <label for="amount2">Amount 2</label>
+                        <input type="text" class="amount2" value="45" />
+                    </div>
+                    <div class="form-row">
+                        <label for="currency">Currency</label>
+                        <select class="currency">
+                            <option value="USD">US Dollar</option>
+                            <option value="CAD">Canadian Dollar</option>
+                            <option value="GBP">Pound</option>
+                            <option value="EUR">Euro</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="customerToken">Customer Token</label>
+                        <input type="text" class="customerToken" value="cus_7iLOlPKxhQJ75a" />
+                    </div> 
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+                <span class="payment-errors"></span>
+                <span class="payment-success"></span>
+            </li>
         </ul>
     </div>
     
